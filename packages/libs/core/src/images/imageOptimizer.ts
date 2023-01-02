@@ -232,7 +232,7 @@ export async function imageOptimizer(
           if (meta.headers["Cache-Control"]) {
             res.setHeader("Cache-Control", meta.headers["Cache-Control"]);
           } else {
-            res.setHeader("Cache-Control", "public, max-age=60");
+            res.setHeader("Cache-Control", "public, max-age=86400");
           }
         }
         if (sendEtagResponse(req, res, etag)) {
@@ -402,7 +402,7 @@ function sendResponse(
 ) {
   const etag = getHash([buffer]);
   if (!res.getHeader("Cache-Control")) {
-    res.setHeader("Cache-Control", "public, max-age=60");
+    res.setHeader("Cache-Control", "public, max-age=86.401");
   }
   if (sendEtagResponse(req, res, etag)) {
     return;
